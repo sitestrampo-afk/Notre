@@ -531,6 +531,16 @@ img {
     overflow: hidden;
 }
 
+.project-link {
+    display: block;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-link:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
 .project-img img {
     width: 100%;
     height: 280px;
@@ -561,6 +571,17 @@ img {
     flex-direction: column;
     justify-content: flex-end;
     background: linear-gradient(135deg, #eaa458 0%, #c07830 100%);
+}
+
+.cta-link-card {
+    display: flex;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta-link-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
 }
 
 .cta-left-content {
@@ -743,6 +764,16 @@ img {
     text-align: center;
 }
 
+.cta-banner-link {
+    display: block;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta-banner-link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
 .cta-banner h2 {
     font-size: clamp(1.8rem, 3vw, 2.8rem);
     font-weight: 800;
@@ -880,11 +911,32 @@ img {
 /* ===== RESPONSIVE ===== */
 
 @media (max-width: 1024px) {
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .hero-left {
+        padding-bottom: 0;
+    }
+    .hero-right {
+        min-height: 420px;
+        justify-content: center;
+    }
+    .appt-form {
+        right: 24px;
+    }
     .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .projects-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     .cta-features-grid {
         grid-template-columns: 1fr;
+    }
+    .cta-left-card,
+    .cta-right-card {
+        min-height: 320px;
     }
     .footer-inner {
         grid-template-columns: 1fr 1fr;
@@ -914,17 +966,19 @@ img {
     .nav-links.open+.nav-cta {
         display: block;
     }
-    .hero-inner {
-        grid-template-columns: 1fr;
-    }
     .hero-right {
         min-height: 400px;
+        align-items: flex-end;
     }
     .doctor-img {
         height: 340px;
     }
     .appt-form {
+        position: relative;
+        top: 0;
+        right: auto;
         width: 240px;
+        margin: 0 auto;
     }
     .cards-grid {
         grid-template-columns: 1fr;
@@ -932,8 +986,29 @@ img {
     .projects-grid {
         grid-template-columns: 1fr;
     }
+    .projects-header {
+        align-items: flex-start;
+    }
+    .proj-nav {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .cta-left-card,
+    .cta-right-card {
+        padding: 32px 24px;
+        min-height: auto;
+    }
+    .cta-left-content {
+        max-width: 100%;
+        padding-right: 120px;
+    }
+    .cta-doctor {
+        height: 70%;
+        right: -12px;
+    }
     .testimonials-grid {
         grid-template-columns: 1fr;
+        gap: 32px;
     }
     .cta-banner {
         padding: 40px 24px;
@@ -944,11 +1019,82 @@ img {
     .stats-inner {
         gap: 20px;
     }
+    .stat {
+        width: calc(50% - 10px);
+    }
     .floating-whatsapp {
         right: 16px;
         bottom: 16px;
         width: 56px;
         height: 56px;
         font-size: 28px;
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        padding: 0 16px;
+    }
+    .section {
+        padding: 64px 0;
+    }
+    .hero {
+        padding-top: 70px;
+    }
+    .hero-inner {
+        padding-top: 36px;
+        gap: 28px;
+    }
+    .hero-left h1 {
+        font-size: 2rem;
+    }
+    .hero-right {
+        min-height: auto;
+        flex-direction: column-reverse;
+        gap: 20px;
+        align-items: center;
+    }
+    .doctor-img {
+        height: auto;
+        max-height: 320px;
+        width: 100%;
+    }
+    .appt-form {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+    .projects-header h2,
+    .test-left h2,
+    .cta-banner h2 {
+        font-size: 1.7rem;
+    }
+    .project-img img {
+        height: 220px;
+    }
+    .cta-left-content {
+        padding-right: 0;
+    }
+    .cta-doctor {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        height: auto;
+        width: 100%;
+        max-width: 260px;
+        margin: 24px auto 0;
+    }
+    .feature-item {
+        gap: 12px;
+    }
+    .test-card {
+        padding: 24px;
+    }
+    .stat {
+        width: 100%;
+    }
+    .nav-btn {
+        width: 36px;
+        height: 36px;
     }
 }
